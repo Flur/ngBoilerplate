@@ -12,6 +12,12 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
             templateUrl: 'myModule/template.tpl.html',
             controller: 'MyController'
         })
+        .state('friendsList', {
+            title: 'Friends List',
+            url: '/friends',
+            templateUrl: 'myModule/friends.tpl.html',
+            controller: 'friendsCtrl'
+        })
         .state('helloWorldWithParams', {
             title: 'Hello Parameters!',
             url: '/hello/:name?param&param2',
