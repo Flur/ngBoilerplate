@@ -1,2 +1,26 @@
+<main class="container">
 
-<p> {{some}}</p>
+  <div>Search<input type="text" ng-model="search"></div>
+
+  <table class="table table-hover">
+    <tr>
+      <td>id</td>
+      <td>First name</td>
+      <td>Last name</td>
+      <td>Email</td>
+      <td>Twitter</td>
+      <td>Total Articles</td>
+    </tr>
+
+    <tr ng-repeat="friend in friends | filter:search">
+      <td>{{friend.id}}</td>
+      <td>{{friend.first_name}}</td>
+      <td>{{friend.last_name}}</td>
+      <td>{{friend.email}}</td>
+      <td>{{friend.twitter}}</td>
+      <td>{{friend.total_articles}}</td>
+    </tr>
+
+  </table>
+
+</main>
