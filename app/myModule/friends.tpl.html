@@ -1,26 +1,40 @@
 <main class="container">
 
-  <div>Search<input type="text" ng-model="search"></div>
+  <div class="row">Search<input type="text" ng-model="searchFilter[search]">in
+    <select ng-options="key as key for (key , value) in friends[1]" ng-model="search">
+      <option value="">In all</option>
+    </select>
+  </div>
 
-  <table class="table table-hover">
-    <tr>
-      <td>id</td>
-      <td>First name</td>
-      <td>Last name</td>
-      <td>Email</td>
-      <td>Twitter</td>
-      <td>Total Articles</td>
-    </tr>
+  <!-- TODO ORDERING -->
+  <div class="row">Order by 
+    <select ng-options="" ng-model="order">
+    </select>
+  </div>
 
-    <tr ng-repeat="friend in friends | filter:search">
-      <td>{{friend.id}}</td>
-      <td>{{friend.first_name}}</td>
-      <td>{{friend.last_name}}</td>
-      <td>{{friend.email}}</td>
-      <td>{{friend.twitter}}</td>
-      <td>{{friend.total_articles}}</td>
-    </tr>
+  <div class="row">
+    <table class="table table-hover">
+      <tr>
+        <td>id</td>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>Email</td>
+        <td>Twitter</td>
+        <td>Total Articles</td>
+      </tr>
 
-  </table>
+      <tr ng-repeat="friend in friends | filter:searchFilter | orderBy: id">
+        <td>{{friend.id}}</td>
+        <td>{{friend.first_name}}</td>
+        <td>{{friend.last_name}}</td>
+        <td>{{friend.email}}</td>
+        <td>{{friend.twitter}}</td>
+        <td>{{friend.total_articles}}</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <button ng-click="modal()">Open modal</button>
 
 </main>
